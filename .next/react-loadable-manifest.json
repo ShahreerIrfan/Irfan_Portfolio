@@ -1,86 +1,86 @@
 {
   "app\\page.tsx -> @/components/AccessibilityWidget": {
-    "id": 6113,
+    "id": "app\\page.tsx -> @/components/AccessibilityWidget",
     "files": [
-      "static/chunks/113.99470e9ed39a36ef.js"
+      "static/chunks/_app-pages-browser_src_components_AccessibilityWidget_tsx.js"
     ]
   },
   "app\\page.tsx -> @/components/CommandPalette": {
-    "id": 4567,
+    "id": "app\\page.tsx -> @/components/CommandPalette",
     "files": [
-      "static/chunks/567.24ff28d09c029404.js"
+      "static/chunks/_app-pages-browser_src_components_CommandPalette_tsx.js"
     ]
   },
   "app\\page.tsx -> @/components/Contact": {
-    "id": 3654,
+    "id": "app\\page.tsx -> @/components/Contact",
     "files": [
-      "static/chunks/654.8176c4c2033f358a.js"
+      "static/chunks/_app-pages-browser_src_components_Contact_tsx.js"
     ]
   },
   "app\\page.tsx -> @/components/Education": {
-    "id": 5092,
+    "id": "app\\page.tsx -> @/components/Education",
     "files": [
-      "static/chunks/92.72e193b12257963d.js"
+      "static/chunks/_app-pages-browser_src_components_Education_tsx.js"
     ]
   },
   "app\\page.tsx -> @/components/Experience": {
-    "id": 6935,
+    "id": "app\\page.tsx -> @/components/Experience",
     "files": [
-      "static/chunks/935.1cb20874ef09444d.js"
+      "static/chunks/_app-pages-browser_src_components_Experience_tsx.js"
     ]
   },
   "app\\page.tsx -> @/components/GitHubShowcase": {
-    "id": 4445,
+    "id": "app\\page.tsx -> @/components/GitHubShowcase",
     "files": [
-      "static/chunks/445.8081c694729f800d.js"
+      "static/chunks/_app-pages-browser_src_components_GitHubShowcase_tsx.js"
     ]
   },
   "app\\page.tsx -> @/components/KeyboardShortcuts": {
-    "id": 4039,
+    "id": "app\\page.tsx -> @/components/KeyboardShortcuts",
     "files": [
-      "static/chunks/39.3ff92aea929834ba.js"
+      "static/chunks/_app-pages-browser_src_components_KeyboardShortcuts_tsx.js"
     ]
   },
   "app\\page.tsx -> @/components/PageLoader": {
-    "id": 7450,
+    "id": "app\\page.tsx -> @/components/PageLoader",
     "files": [
-      "static/chunks/450.92322f397c7fefa1.js"
+      "static/chunks/_app-pages-browser_src_components_PageLoader_tsx.js"
     ]
   },
   "app\\page.tsx -> @/components/Projects": {
-    "id": 9143,
+    "id": "app\\page.tsx -> @/components/Projects",
     "files": [
-      "static/chunks/143.0660db1ff993cc80.js"
+      "static/chunks/_app-pages-browser_src_components_Projects_tsx.js"
     ]
   },
   "app\\page.tsx -> @/components/RocketScroll": {
-    "id": 5555,
+    "id": "app\\page.tsx -> @/components/RocketScroll",
     "files": [
-      "static/chunks/58.bd7be5972a621478.js"
+      "static/chunks/_app-pages-browser_src_components_RocketScroll_tsx.js"
     ]
   },
   "app\\page.tsx -> @/components/SectionIndicator": {
-    "id": 194,
+    "id": "app\\page.tsx -> @/components/SectionIndicator",
     "files": [
-      "static/chunks/612.2c10b95af9635b92.js"
+      "static/chunks/_app-pages-browser_src_components_SectionIndicator_tsx.js"
     ]
   },
   "app\\page.tsx -> @/components/Services": {
-    "id": 7612,
+    "id": "app\\page.tsx -> @/components/Services",
     "files": [
-      "static/chunks/362.48e1743b5dbc5711.js"
+      "static/chunks/_app-pages-browser_src_components_Services_tsx.js"
     ]
   },
   "app\\page.tsx -> @/components/TechStack": {
-    "id": 2469,
+    "id": "app\\page.tsx -> @/components/TechStack",
     "files": [
-      "static/chunks/469.5c735cab15bc0bcc.js"
+      "static/chunks/_app-pages-browser_src_components_TechStack_tsx.js"
     ]
   },
   "app\\page.tsx -> @/components/WhatsAppButton": {
-    "id": 5242,
+    "id": "app\\page.tsx -> @/components/WhatsAppButton",
     "files": [
-      "static/chunks/242.08b80d27448d64da.js"
+      "static/chunks/_app-pages-browser_src_components_WhatsAppButton_tsx.js"
     ]
   }
 }

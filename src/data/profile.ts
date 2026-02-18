@@ -182,7 +182,7 @@ const profile: ProfileData = {
   ],
   githubStats: {
     totalContributions: 487,
-    repositories: 24,
+    repositories: 55,
     pullRequests: 38,
     issues: 15,
     stars: 12,
