@@ -187,7 +187,7 @@ const profile: ProfileData = {
     issues: 15,
     stars: 12,
     currentStreak: 7,
-    longestStreak: 23,
+    longestStreak: 455,
     contributionData: [
       0, 2, 1, 0, 3, 2, 1, 0, 0, 1, 2, 4, 3, 1,
       0, 1, 0, 2, 3, 1, 0, 0, 2, 1, 3, 5, 2, 1,
