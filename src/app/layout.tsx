@@ -4,6 +4,7 @@ import { ToastProvider } from '@/components/Toast';
 import './globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://irfan-portfolio-dun.vercel.app'),
   title: {
     default: 'MD Shahreer Irfan — Web Developer Portfolio',
     template: '%s | MD Shahreer Irfan',
@@ -26,17 +27,26 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://shahreerirfan.dev',
+    url: 'https://irfan-portfolio-dun.vercel.app',
     title: 'MD Shahreer Irfan — Web Developer Portfolio',
     description:
       'Full-stack web developer specializing in Django, Next.js, and WordPress.',
     siteName: 'Shahreer Irfan Portfolio',
+    images: [
+      {
+        url: '/Irfan.png',
+        width: 600,
+        height: 600,
+        alt: 'MD Shahreer Irfan',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'MD Shahreer Irfan — Web Developer Portfolio',
     description:
       'Full-stack web developer specializing in Django, Next.js, and WordPress.',
+    images: ['/Irfan.png'],
   },
   robots: {
     index: true,

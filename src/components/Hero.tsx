@@ -171,12 +171,12 @@ export default function Hero() {
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Scroll indicator */}
-        <div className="hero-bio absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#49454F]/40 dark:text-dark-text-secondary/40">
-          <span className="text-xs font-medium uppercase tracking-widest">Scroll Down</span>
-          <ChevronDown className="w-5 h-5 animate-bounce" />
-        </div>
+      {/* Scroll indicator — hidden on mobile to avoid overlap with buttons */}
+      <div className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-[#49454F]/40 dark:text-dark-text-secondary/40">
+        <span className="text-xs font-medium uppercase tracking-widest">Scroll Down</span>
+        <ChevronDown className="w-5 h-5 animate-bounce" />
       </div>
 
       {/* Bottom wave */}

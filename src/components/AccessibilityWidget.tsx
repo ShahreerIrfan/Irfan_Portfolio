@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { Accessibility, ZoomIn, ZoomOut, RotateCcw, Eye, Volume2 } from 'lucide-react';
+import { Accessibility, ZoomIn, ZoomOut, RotateCcw, Eye, Volume2, X } from 'lucide-react';
 
 export default function AccessibilityWidget() {
   const [open, setOpen] = useState(false);
@@ -127,10 +127,10 @@ export default function AccessibilityWidget() {
             ? 'bg-[var(--active-accent)] text-white rotate-0 scale-110'
             : 'glass-card text-[var(--active-accent)] hover:scale-110'
         }`}
-        aria-label="Accessibility options"
+        aria-label={open ? 'Close accessibility options' : 'Open accessibility options'}
         aria-expanded={open}
       >
-        <Accessibility className="w-5 h-5" />
+        {open ? <X className="w-5 h-5" /> : <Accessibility className="w-5 h-5" />}
       </button>
     </div>
   );

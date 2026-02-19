@@ -10,7 +10,10 @@ if (typeof window !== 'undefined') {
 
 function prefersReducedMotion(): boolean {
   if (typeof window === 'undefined') return false;
-  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  return (
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+    document.documentElement.classList.contains('reduce-motion')
+  );
 }
 
 /* ===========================

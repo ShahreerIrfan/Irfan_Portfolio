@@ -290,7 +290,24 @@
 .reduce-motion *, .reduce-motion *::before, .reduce-motion *::after {
   animation-duration: 0.01ms !important;
   animation-iteration-count: 1 !important;
-  transition-duration: 0.1ms !important;
+  transition-duration: 0.01ms !important;
+}
+.reduce-motion {
+  scroll-behavior: auto !important;
+}
+/* Make GSAP-hidden elements visible when motion is reduced */
+.reduce-motion .hero-photo,
+.reduce-motion .hero-greeting,
+.reduce-motion .hero-name,
+.reduce-motion .hero-tagline,
+.reduce-motion .hero-bio,
+.reduce-motion .hero-stats,
+.reduce-motion .hero-socials,
+.reduce-motion .hero-buttons,
+.reduce-motion .timeline-item,
+.reduce-motion .timeline-dot {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 /* ========== HIGH CONTRAST ========== */
