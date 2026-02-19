@@ -16,8 +16,8 @@ const contactInfo = [
   {
     icon: Phone,
     label: 'Phone',
-    value: '+880 1XXX-XXXXXX',
-    href: 'tel:+8801XXXXXXXXX',
+    value: '+880 1344-260216',
+    href: 'tel:+8801344260216',
     color: 'from-emerald-500 to-teal-400',
   },
   {
