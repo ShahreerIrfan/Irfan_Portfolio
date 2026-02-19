@@ -73,7 +73,7 @@ export default function GitHubShowcase() {
   const countRefs = [countContrib, countRepos, countPRs, countStars];
 
   return (
-    <section id="github" className="relative section-animated-bg">
+    <section id="github" className="relative overflow-hidden section-animated-bg">
       <div className="section-container">
         <div ref={titleRef}>
           <h2 className="section-title">GitHub Activity</h2>

@@ -15,7 +15,7 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="relative section-animated-bg">
+    <section id="experience" className="relative overflow-hidden section-animated-bg">
       <div className="section-container">
         <div ref={titleRef}>
           <h2 className="section-title">Work Experience</h2>

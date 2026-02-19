@@ -16,6 +16,11 @@
   html {
     @apply font-sans antialiased;
     scroll-padding-top: 5rem;
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
   }
 
   body {
@@ -290,17 +295,41 @@
 
 /* ========== HIGH CONTRAST ========== */
 .high-contrast body {
-  @apply bg-white text-black;
-  background-image: none;
+  background: #ffffff !important;
+  color: #000000 !important;
+  background-image: none !important;
 }
-.high-contrast .dark body {
-  @apply bg-black text-white;
-  background-image: none;
+.high-contrast.dark body {
+  background: #000000 !important;
+  color: #ffffff !important;
+  background-image: none !important;
 }
 .high-contrast .glass-card,
 .high-contrast .glass-card-hover {
-  @apply bg-white dark:bg-black border-2 border-black dark:border-white;
-  backdrop-filter: none;
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+.high-contrast.dark .glass-card,
+.high-contrast.dark .glass-card-hover {
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+}
+.high-contrast .section-title,
+.high-contrast .gradient-text-animated,
+.high-contrast .stat-number {
+  -webkit-text-fill-color: currentColor !important;
+  background: none !important;
+  color: #000000 !important;
+}
+.high-contrast.dark .section-title,
+.high-contrast.dark .gradient-text-animated,
+.high-contrast.dark .stat-number {
+  color: #ffffff !important;
+}
+.high-contrast .section-animated-bg::before {
+  display: none !important;
 }
 .high-contrast a,
 .high-contrast button {

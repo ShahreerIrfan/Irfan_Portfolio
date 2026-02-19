@@ -9,7 +9,7 @@ export default function Education() {
   const titleRef = useGsapReveal({ y: 40 });
 
   return (
-    <section id="education" className="relative section-animated-bg">
+    <section id="education" className="relative overflow-hidden section-animated-bg">
       <div className="section-container">
         <div ref={titleRef}>
           <h2 className="section-title">Education</h2>

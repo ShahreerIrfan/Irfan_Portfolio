@@ -47,7 +47,7 @@ export default function Services() {
   const gridRef = useGsapStagger({ stagger: 0.08, scale: true });
 
   return (
-    <section id="services" className="relative section-animated-bg">
+    <section id="services" className="relative overflow-hidden section-animated-bg">
       <div className="section-container">
         <div ref={titleRef}>
           <h2 className="section-title">What I Do</h2>

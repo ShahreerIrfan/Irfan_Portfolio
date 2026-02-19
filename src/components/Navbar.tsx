@@ -61,7 +61,7 @@ export default function Navbar({ onCommandPalette }: { onCommandPalette: () => v
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-white/95 dark:bg-dark-bg/95 shadow-sm border-b border-ms-border dark:border-dark-border'
-          : 'bg-transparent'
+          : 'bg-white/70 dark:bg-dark-bg/70 md:bg-transparent md:dark:bg-transparent'
       }`}
       role="navigation"
       aria-label="Main navigation"

@@ -90,7 +90,7 @@ export default function AccessibilityWidget() {
 
         {/* Toggle options */}
         <div className="space-y-3">
-          <label className="flex items-center justify-between cursor-pointer group">
+          <label className="flex items-center justify-between cursor-pointer group" onClick={() => setHighContrast(!highContrast)}>
             <span className="text-xs font-medium text-[#49454F] dark:text-dark-text-secondary flex items-center gap-2">
               <Eye className="w-3.5 h-3.5" /> High Contrast
             </span>
@@ -98,7 +98,6 @@ export default function AccessibilityWidget() {
               <div className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${highContrast ? 'translate-x-5' : 'translate-x-0.5'}`} />
             </div>
           </label>
-          <input type="checkbox" className="sr-only" checked={highContrast} onChange={() => setHighContrast(!highContrast)} />
 
           <label className="flex items-center justify-between cursor-pointer group" onClick={() => setReducedMotion(!reducedMotion)}>
             <span className="text-xs font-medium text-[#49454F] dark:text-dark-text-secondary flex items-center gap-2">

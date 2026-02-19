@@ -84,7 +84,7 @@ export default function About() {
   const titleRef = useGsapReveal({ y: 40 });
 
   return (
-    <section id="about" className="relative section-animated-bg">
+    <section id="about" className="relative overflow-hidden section-animated-bg">
       <div className="section-container">
         <div ref={titleRef}>
           <h2 className="section-title">At a Glance</h2>

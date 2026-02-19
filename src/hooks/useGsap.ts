@@ -150,7 +150,7 @@ export function useGsapTimeline() {
 
     // Set initial states
     if (line) gsap.set(line, { scaleY: 0 });
-    gsap.set(items, { opacity: 0, x: (i: number) => (i % 2 === 0 ? -60 : 60) });
+    gsap.set(items, { opacity: 0, x: (i: number) => (i % 2 === 0 ? -30 : 30) });
     gsap.set(dots, { scale: 0 });
 
     const ctx = gsap.context(() => {
