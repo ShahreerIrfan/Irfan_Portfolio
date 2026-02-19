@@ -35,7 +35,7 @@ const profile: ProfileData = {
     },
   ],
   snippets: {
-    yearsExperience: 3,
+    yearsExperience: 6,
     primaryStack: 'Django + Next.js',
     problemsSolved: '250+ (Codeforces & ICPC)',
   },

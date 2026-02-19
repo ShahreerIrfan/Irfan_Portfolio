@@ -44,7 +44,7 @@ const snapshots = [
   {
     icon: Target,
     label: 'Projects Delivered',
-    value: '8+',
+    value: '180+',
     subtitle: 'Clients & personal',
     color: 'from-rose-500 to-pink-400',
     iconBg: 'bg-rose-500/10',
