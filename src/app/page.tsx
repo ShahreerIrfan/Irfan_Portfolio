@@ -55,6 +55,9 @@ const SectionIndicator = dynamic(() => import('@/components/SectionIndicator'), 
 const WhatsAppButton = dynamic(() => import('@/components/WhatsAppButton'), {
   ssr: false,
 });
+const AiChat = dynamic(() => import('@/components/AiChat'), {
+  ssr: false,
+});
 
 function SectionSkeleton() {
   return (
@@ -138,6 +141,7 @@ export default function Home() {
       <Footer />
       <BackToTop />
       <WhatsAppButton />
+      <AiChat />
       <AccessibilityWidget />
     </SmoothScrollProvider>
   );

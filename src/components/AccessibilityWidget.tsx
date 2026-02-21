@@ -42,7 +42,7 @@ export default function AccessibilityWidget() {
   const decreaseFontSize = () => setFontSize((prev) => Math.max(prev - 10, 70));
 
   return (
-    <div className="fixed bottom-20 right-6 z-50">
+    <div className="fixed bottom-[9.5rem] right-6 z-50">
       {/* Panel */}
       <div
         className={`absolute bottom-16 right-0 w-72 glass-card p-5 shadow-2xl transition-all duration-300 origin-bottom-right ${
