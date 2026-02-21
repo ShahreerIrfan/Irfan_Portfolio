@@ -17,9 +17,9 @@ export default function Experience() {
   return (
     <section id="experience" className="relative overflow-hidden section-animated-bg">
       <div className="section-container">
-        <div ref={titleRef}>
-          <h2 className="section-title">Work Experience</h2>
-          <p className="section-subtitle">Professional journey and key contributions</p>
+        <div ref={titleRef} className="text-center">
+          <h2 className="section-title text-center">Work Experience</h2>
+          <p className="section-subtitle text-center mx-auto">Professional journey and key contributions</p>
         </div>
 
         <div ref={timelineRef} className="relative">
@@ -78,13 +78,13 @@ export default function Experience() {
                   </div>
 
                   {/* Tech Stack Chips */}
-                  <div className="pt-4 border-t border-[var(--active-accent)]/5 dark:border-blue-500/10">
+                  <div className="pt-5 border-t border-[var(--active-accent)]/5 dark:border-blue-500/10">
                     <p className="text-xs font-semibold text-[#49454F]/60 dark:text-dark-text-secondary/60 uppercase tracking-wider mb-3">
                       Technologies Used
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {exp.techStack.map((tech) => (
-                        <span key={tech} className="chip text-xs">
+                        <span key={tech} className="chip text-xs hover:shadow-md transition-shadow">
                           {tech}
                         </span>
                       ))}

@@ -11,9 +11,9 @@ export default function Education() {
   return (
     <section id="education" className="relative overflow-hidden section-animated-bg">
       <div className="section-container">
-        <div ref={titleRef}>
-          <h2 className="section-title">Education</h2>
-          <p className="section-subtitle">Academic background and competitive programming journey</p>
+        <div ref={titleRef} className="text-center">
+          <h2 className="section-title text-center">Education</h2>
+          <p className="section-subtitle text-center mx-auto">Academic background and competitive programming journey</p>
         </div>
 
         <div ref={timelineRef} className="relative">
@@ -82,7 +82,7 @@ export default function Education() {
 
                   {/* Status Badge */}
                   {!edu.endYear && (
-                    <div className="mt-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-sm font-medium border border-emerald-500/15">
+                    <div className="mt-5 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-emerald-500/10 to-teal-500/10 text-emerald-600 dark:text-emerald-400 text-sm font-semibold border border-emerald-500/20 shadow-sm">
                       <span className="relative flex h-2.5 w-2.5">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
@@ -113,13 +113,13 @@ export default function Education() {
               </div>
 
               <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="p-3 rounded-xl bg-purple-500/5 text-center border border-purple-500/10">
-                  <p className="text-2xl font-black text-purple-500">250+</p>
-                  <p className="text-xs text-[#49454F] dark:text-dark-text-secondary">Problems Solved</p>
+                <div className="p-4 rounded-xl bg-gradient-to-br from-purple-500/5 to-pink-500/5 text-center border border-purple-500/15 hover:border-purple-500/25 transition-colors">
+                  <p className="text-2xl font-black bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">250+</p>
+                  <p className="text-xs font-medium text-[#49454F] dark:text-dark-text-secondary">Problems Solved</p>
                 </div>
-                <div className="p-3 rounded-xl bg-purple-500/5 text-center border border-purple-500/10">
-                  <p className="text-2xl font-black text-purple-500">ICPC</p>
-                  <p className="text-xs text-[#49454F] dark:text-dark-text-secondary">Participant</p>
+                <div className="p-4 rounded-xl bg-gradient-to-br from-purple-500/5 to-pink-500/5 text-center border border-purple-500/15 hover:border-purple-500/25 transition-colors">
+                  <p className="text-2xl font-black bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">ICPC</p>
+                  <p className="text-xs font-medium text-[#49454F] dark:text-dark-text-secondary">Participant</p>
                 </div>
               </div>
 

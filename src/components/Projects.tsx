@@ -25,9 +25,9 @@ export default function Projects() {
       </div>
 
       <div className="section-container">
-        <div ref={titleRef}>
-          <h2 className="section-title">Projects</h2>
-          <p className="section-subtitle">Featured work and side projects I&apos;ve built</p>
+        <div ref={titleRef} className="text-center">
+          <h2 className="section-title text-center">Projects</h2>
+          <p className="section-subtitle text-center mx-auto">Featured work and side projects I&apos;ve built</p>
         </div>
 
         {/* Filter Tabs */}
@@ -53,14 +53,20 @@ export default function Projects() {
           {filtered.map((project) => (
             <div
               key={project.id}
-              className="gradient-border-card glow-hover group"
+              className="gradient-border-card glow-hover group relative overflow-hidden"
             >
-              <div className="p-6 md:p-7 flex flex-col h-full">
+              {/* Top accent line */}
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--active-accent)] via-purple-500 to-pink-500 opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
+              {/* Hover background glow */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[var(--active-accent)]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative z-10 p-6 md:p-7 flex flex-col h-full">
                 {/* Featured Badge */}
                 {project.featured && (
                   <div className="flex items-center gap-1.5 mb-3">
-                    <Pin className="w-3.5 h-3.5 text-amber-500" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-amber-500">Featured</span>
+                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20">
+                      <Pin className="w-3.5 h-3.5 text-amber-500" />
+                      <span className="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">Featured</span>
+                    </div>
                   </div>
                 )}
 
@@ -92,7 +98,7 @@ export default function Projects() {
                   {project.stack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-[var(--active-accent)]/5 text-[var(--active-accent)] border border-[var(--active-accent)]/10"
+                      className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-[var(--active-accent)]/5 text-[var(--active-accent)] border border-[var(--active-accent)]/10 hover:bg-[var(--active-accent)]/10 hover:shadow-sm transition-all duration-200 cursor-default"
                     >
                       {tech}
                     </span>

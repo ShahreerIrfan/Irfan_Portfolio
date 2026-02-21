@@ -13,10 +13,13 @@ const navLinks = [
   { label: 'Contact', href: '#contact' },
 ];
 
-const accents: Array<{ key: 'blue' | 'purple' | 'teal'; color: string; label: string }> = [
+const accents: Array<{ key: 'blue' | 'purple' | 'teal' | 'coral' | 'amber' | 'emerald'; color: string; label: string }> = [
   { key: 'blue', color: '#0078D4', label: 'Blue' },
   { key: 'purple', color: '#7C3AED', label: 'Purple' },
   { key: 'teal', color: '#0D9488', label: 'Teal' },
+  { key: 'coral', color: '#F43F5E', label: 'Coral' },
+  { key: 'amber', color: '#F59E0B', label: 'Amber' },
+  { key: 'emerald', color: '#10B981', label: 'Emerald' },
 ];
 
 export default function Navbar({ onCommandPalette }: { onCommandPalette: () => void }) {
@@ -60,7 +63,7 @@ export default function Navbar({ onCommandPalette }: { onCommandPalette: () => v
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/95 dark:bg-dark-bg/95 shadow-sm border-b border-ms-border dark:border-dark-border'
+          ? 'bg-white/95 dark:bg-dark-bg/95 backdrop-blur-md shadow-sm border-b border-ms-border dark:border-dark-border'
           : 'bg-white/70 dark:bg-dark-bg/70 md:bg-transparent md:dark:bg-transparent'
       }`}
       role="navigation"
@@ -71,11 +74,11 @@ export default function Navbar({ onCommandPalette }: { onCommandPalette: () => v
           {/* Logo */}
           <button
             onClick={() => scrollTo('#hero')}
-            className="text-lg font-bold text-ms-text dark:text-dark-text hover:text-ms-blue dark:hover:text-blue-400 transition-colors"
+            className="text-lg font-black text-ms-text dark:text-dark-text hover:text-ms-blue dark:hover:text-blue-400 transition-colors"
           >
-            <span className="text-[var(--active-accent)]">&lt;</span>
+            <span className="bg-gradient-to-r from-[var(--active-accent)] to-purple-500 bg-clip-text text-transparent">&lt;</span>
             Irfan
-            <span className="text-[var(--active-accent)]"> /&gt;</span>
+            <span className="bg-gradient-to-r from-[var(--active-accent)] to-purple-500 bg-clip-text text-transparent"> /&gt;</span>
           </button>
 
           {/* Desktop Nav */}
@@ -120,13 +123,13 @@ export default function Navbar({ onCommandPalette }: { onCommandPalette: () => v
                 <Palette className="w-5 h-5" />
               </button>
               {showAccentPicker && (
-                <div className="absolute right-0 top-full mt-2 glass-card p-3 flex gap-2 min-w-max">
+                <div className="absolute right-0 top-full mt-2 glass-card p-3 flex gap-2.5 min-w-max shadow-xl">
                   {accents.map((a) => (
                     <button
                       key={a.key}
                       onClick={() => { setAccent(a.key); setShowAccentPicker(false); }}
-                      className={`w-7 h-7 rounded-full border-2 transition-transform hover:scale-110 ${
-                        accent === a.key ? 'border-ms-text dark:border-dark-text scale-110' : 'border-transparent'
+                      className={`w-7 h-7 rounded-full border-2 transition-all duration-200 hover:scale-125 hover:shadow-lg ${
+                        accent === a.key ? 'border-ms-text dark:border-dark-text scale-110 shadow-md' : 'border-transparent'
                       }`}
                       style={{ backgroundColor: a.color }}
                       aria-label={`Set ${a.label} accent`}

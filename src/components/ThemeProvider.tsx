@@ -3,7 +3,7 @@
 import { createContext, useContext, useEffect, useState, ReactNode, useCallback } from 'react';
 
 type Theme = 'light' | 'dark';
-type Accent = 'blue' | 'purple' | 'teal';
+type Accent = 'blue' | 'purple' | 'teal' | 'coral' | 'amber' | 'emerald';
 
 interface ThemeCtx {
   theme: Theme;
@@ -23,6 +23,9 @@ const accentMap: Record<Accent, string> = {
   blue: '#0078D4',
   purple: '#7C3AED',
   teal: '#0D9488',
+  coral: '#F43F5E',
+  amber: '#F59E0B',
+  emerald: '#10B981',
 };
 
 export function ThemeProvider({ children }: { children: ReactNode }) {

@@ -62,9 +62,9 @@ export default function Contact() {
       </div>
 
       <div className="section-container">
-        <div ref={titleRef}>
-          <h2 className="section-title">Get In Touch</h2>
-          <p className="section-subtitle">Have a project in mind or want to collaborate? Let&apos;s connect!</p>
+        <div ref={titleRef} className="text-center">
+          <h2 className="section-title text-center">Get In Touch</h2>
+          <p className="section-subtitle text-center mx-auto">Have a project in mind or want to collaborate? Let&apos;s connect!</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -74,10 +74,14 @@ export default function Contact() {
               {contactInfo.map((item) => (
                 <div
                   key={item.label}
-                  className="glass-card-hover p-5 group cursor-pointer"
+                  className="glass-card-hover p-5 group cursor-pointer relative overflow-hidden"
                   onClick={() => item.value !== 'Dhaka, Bangladesh' && item.value !== 'Within 24 hours' && copyToClipboard(item.value, item.label)}
                 >
-                  <div className="flex items-start gap-3">
+                  {/* Top accent line */}
+                  <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${item.color} opacity-60`} />
+                  {/* Hover glow */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-[0.05] transition-opacity duration-500`} />
+                  <div className="relative z-10 flex items-start gap-3">
                     <div className={`flex-shrink-0 p-2.5 rounded-xl bg-gradient-to-br ${item.color} shadow-lg transition-transform duration-300 group-hover:scale-110`}>
                       <item.icon className="w-5 h-5 text-white" />
                     </div>
@@ -107,9 +111,12 @@ export default function Contact() {
             </div>
 
             {/* Social Links */}
-            <div className="glass-card p-6">
+            <div className="glass-card p-6 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--active-accent)] via-purple-500 to-pink-500 opacity-60" />
               <p className="text-sm font-semibold text-[#1B1B1F] dark:text-dark-text mb-4 flex items-center gap-2">
-                <MessageSquare className="w-4 h-4 text-[var(--active-accent)]" />
+                <div className="p-1.5 rounded-lg bg-gradient-to-br from-[var(--active-accent)] to-purple-500 shadow-md">
+                  <MessageSquare className="w-3.5 h-3.5 text-white" />
+                </div>
                 Connect on Social
               </p>
               <div className="flex gap-3">
@@ -135,9 +142,14 @@ export default function Contact() {
           </div>
 
           {/* Right Column — Contact Form */}
-          <div ref={formRef} className="glass-card p-6 md:p-8">
+          <div ref={formRef} className="glass-card p-6 md:p-8 relative overflow-hidden">
+            {/* Gradient accent top */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--active-accent)] via-purple-500 to-pink-500 opacity-60" />
+
             <h3 className="text-lg font-bold text-[#1B1B1F] dark:text-dark-text mb-6 flex items-center gap-2">
-              <Send className="w-5 h-5 text-[var(--active-accent)]" />
+              <div className="p-2 rounded-xl bg-gradient-to-br from-[var(--active-accent)] to-purple-500 shadow-lg">
+                <Send className="w-4 h-4 text-white" />
+              </div>
               Send a Message
             </h3>
 

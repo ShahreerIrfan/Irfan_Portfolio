@@ -75,22 +75,27 @@ export default function GitHubShowcase() {
   return (
     <section id="github" className="relative overflow-hidden section-animated-bg">
       <div className="section-container">
-        <div ref={titleRef}>
-          <h2 className="section-title">GitHub Activity</h2>
-          <p className="section-subtitle">Open source contributions and coding activity overview</p>
+        <div ref={titleRef} className="text-center">
+          <h2 className="section-title text-center">GitHub Activity</h2>
+          <p className="section-subtitle text-center mx-auto">Open source contributions and coding activity overview</p>
         </div>
 
         {/* Stats Cards */}
         <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 mb-10">
           {stats.map((stat, idx) => (
-            <div key={stat.label} className="glass-card-hover p-5 md:p-6 text-center group">
-              <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${stat.color} mb-3 shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
-                <stat.icon className="w-6 h-6 text-white" />
+            <div key={stat.label} className="glass-card-hover p-5 md:p-6 text-center group relative overflow-hidden">
+              {/* Top accent line */}
+              <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${stat.color} opacity-60`} />
+              <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-[0.06] transition-opacity duration-500`} />
+              <div className="relative z-10">
+                <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${stat.color} mb-3 shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl`}>
+                  <stat.icon className="w-6 h-6 text-white" />
+                </div>
+                <p className="stat-number mb-1">
+                  <span ref={countRefs[idx]}>{stat.value}</span>
+                </p>
+                <p className="text-sm font-medium text-[#49454F] dark:text-dark-text-secondary">{stat.label}</p>
               </div>
-              <p className="stat-number mb-1">
-                <span ref={countRefs[idx]}>{stat.value}</span>
-              </p>
-              <p className="text-sm font-medium text-[#49454F] dark:text-dark-text-secondary">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -116,23 +121,35 @@ export default function GitHubShowcase() {
 
         {/* Streak Cards */}
         <div ref={streakRef} className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="glass-card-hover p-6 text-center">
-            <Flame className="w-8 h-8 text-orange-500 mx-auto mb-2" />
-            <p className="text-3xl font-black text-[#1B1B1F] dark:text-dark-text">{profile.githubStats.currentStreak}</p>
-            <p className="text-sm text-[#49454F] dark:text-dark-text-secondary">Current Streak</p>
-            <p className="text-xs text-[#49454F]/50 mt-1">days</p>
+          <div className="glass-card-hover p-6 text-center group relative overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-orange-500 to-amber-400 opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-amber-400 opacity-0 group-hover:opacity-[0.06] transition-opacity duration-500" />
+            <div className="relative z-10">
+              <Flame className="w-8 h-8 text-orange-500 mx-auto mb-2" />
+              <p className="text-3xl font-black bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">{profile.githubStats.currentStreak}</p>
+              <p className="text-sm font-medium text-[#49454F] dark:text-dark-text-secondary">Current Streak</p>
+              <p className="text-xs text-[#49454F]/50 mt-1">days</p>
+            </div>
           </div>
-          <div className="glass-card-hover p-6 text-center">
-            <Trophy className="w-8 h-8 text-amber-500 mx-auto mb-2" />
-            <p className="text-3xl font-black text-[#1B1B1F] dark:text-dark-text">{profile.githubStats.longestStreak}</p>
-            <p className="text-sm text-[#49454F] dark:text-dark-text-secondary">Longest Streak</p>
-            <p className="text-xs text-[#49454F]/50 mt-1">days</p>
+          <div className="glass-card-hover p-6 text-center group relative overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-amber-500 to-yellow-400 opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-yellow-400 opacity-0 group-hover:opacity-[0.06] transition-opacity duration-500" />
+            <div className="relative z-10">
+              <Trophy className="w-8 h-8 text-amber-500 mx-auto mb-2" />
+              <p className="text-3xl font-black bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-transparent">{profile.githubStats.longestStreak}</p>
+              <p className="text-sm font-medium text-[#49454F] dark:text-dark-text-secondary">Longest Streak</p>
+              <p className="text-xs text-[#49454F]/50 mt-1">days</p>
+            </div>
           </div>
-          <div className="glass-card-hover p-6 text-center">
-            <AlertCircle className="w-8 h-8 text-blue-500 mx-auto mb-2" />
-            <p className="text-3xl font-black text-[#1B1B1F] dark:text-dark-text">{profile.githubStats.issues}</p>
-            <p className="text-sm text-[#49454F] dark:text-dark-text-secondary">Issues Opened</p>
-            <p className="text-xs text-[#49454F]/50 mt-1">contributions</p>
+          <div className="glass-card-hover p-6 text-center group relative overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500 to-cyan-400 opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-400 opacity-0 group-hover:opacity-[0.06] transition-opacity duration-500" />
+            <div className="relative z-10">
+              <AlertCircle className="w-8 h-8 text-blue-500 mx-auto mb-2" />
+              <p className="text-3xl font-black bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">{profile.githubStats.issues}</p>
+              <p className="text-sm font-medium text-[#49454F] dark:text-dark-text-secondary">Issues Opened</p>
+              <p className="text-xs text-[#49454F]/50 mt-1">contributions</p>
+            </div>
           </div>
         </div>
       </div>

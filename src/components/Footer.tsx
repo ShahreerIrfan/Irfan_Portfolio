@@ -23,17 +23,19 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-[#0078D4]/5 dark:border-dark-border bg-white/90 dark:bg-[#0c1524]/90">
+    <footer className="relative border-t border-[#0078D4]/5 dark:border-dark-border bg-white/90 dark:bg-[#0c1524]/90 overflow-hidden">
+      {/* Gradient top accent line */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500 via-[var(--active-accent)] to-purple-500 opacity-50" />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Top Row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-3">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[var(--active-accent)] to-blue-400 flex items-center justify-center">
-                <Code2 className="w-4 h-4 text-white" />
+            <div className="flex items-center gap-2.5 mb-3">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[var(--active-accent)] to-purple-500 flex items-center justify-center shadow-lg">
+                <Code2 className="w-4.5 h-4.5 text-white" />
               </div>
-              <span className="text-lg font-bold text-[#1B1B1F] dark:text-dark-text">
+              <span className="text-lg font-black bg-gradient-to-r from-[var(--active-accent)] to-purple-500 bg-clip-text text-transparent">
                 {profile.name.split(' ').pop()}
               </span>
             </div>
@@ -76,7 +78,7 @@ export default function Footer() {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2.5 rounded-xl glass-card-hover text-[#49454F] dark:text-dark-text-secondary hover:text-[var(--active-accent)]"
+                      className="p-2.5 rounded-xl glass-card-hover text-[#49454F] dark:text-dark-text-secondary hover:text-[var(--active-accent)] hover:shadow-md transition-all duration-300"
                       aria-label={social.label}
                     >
                       <Icon className="w-4 h-4" />
@@ -88,7 +90,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-[var(--active-accent)]/10 to-transparent mb-6" />
+        <div className="h-px bg-gradient-to-r from-transparent via-[var(--active-accent)]/20 to-transparent mb-6" />
 
         {/* Copyright */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
