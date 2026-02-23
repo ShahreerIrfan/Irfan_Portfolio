@@ -3,6 +3,8 @@ import dbConnect from '@/lib/mongodb';
 import Project from '@/models/Project';
 import { isAuthenticated } from '@/lib/auth';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: NextRequest, { params }: { params: { slug: string } }) {
   await dbConnect();
   const project = await Project.findOne({ slug: params.slug });

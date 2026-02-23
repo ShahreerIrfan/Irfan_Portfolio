@@ -19,7 +19,7 @@ const navLinks = [
   { label: 'Contact', href: '/contact', icon: Mail },
 ];
 
-export default function Navbar({ onCommandPalette }: { onCommandPalette: () => void }) {
+export default function Navbar({ onCommandPalette }: { onCommandPalette?: () => void }) {
   const { theme, toggleTheme, accent, setAccent } = useTheme();
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -97,7 +97,7 @@ export default function Navbar({ onCommandPalette }: { onCommandPalette: () => v
           {/* Right controls */}
           <div className="flex items-center gap-2">
             <button
-              onClick={onCommandPalette}
+              onClick={() => onCommandPalette?.()}
               className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs text-ms-text-secondary dark:text-dark-text-secondary border border-ms-border dark:border-dark-border hover:bg-ms-blue-light dark:hover:bg-dark-bg-secondary transition-colors"
               aria-label="Open command palette (Ctrl+K)"
             >
@@ -230,7 +230,7 @@ export default function Navbar({ onCommandPalette }: { onCommandPalette: () => v
             Hire Me
           </Link>
           <button
-            onClick={() => { setMobileOpen(false); onCommandPalette(); }}
+            onClick={() => { setMobileOpen(false); onCommandPalette?.(); }}
             className="flex items-center gap-2 w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-ms-text-secondary dark:text-dark-text-secondary hover:bg-ms-blue-light dark:hover:bg-dark-bg-secondary"
           >
             <Command className="w-4 h-4" /> Command Palette

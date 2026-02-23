@@ -3,6 +3,8 @@ import dbConnect from '@/lib/mongodb';
 import Service from '@/models/Service';
 import { isAuthenticated } from '@/lib/auth';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: NextRequest) {
   await dbConnect();
   const isAdmin = isAuthenticated(req);

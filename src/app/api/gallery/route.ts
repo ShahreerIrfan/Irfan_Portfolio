@@ -3,6 +3,8 @@ import connectDB from '@/lib/mongodb';
 import Gallery from '@/models/Gallery';
 import { isAuthenticated } from '@/lib/auth';
 
+export const dynamic = 'force-dynamic';
+
 // GET /api/gallery — public: published sorted by order; admin: all
 export async function GET(req: NextRequest) {
   try {

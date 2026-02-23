@@ -3,6 +3,8 @@ import dbConnect from '@/lib/mongodb';
 import Service from '@/models/Service';
 import { isAuthenticated } from '@/lib/auth';
 
+export const dynamic = 'force-dynamic';
+
 export async function PUT(req: NextRequest, { params }: { params: { slug: string } }) {
   if (!isAuthenticated(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   await dbConnect();

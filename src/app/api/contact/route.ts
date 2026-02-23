@@ -3,6 +3,8 @@ import dbConnect from '@/lib/mongodb';
 import ContactModel from '@/models/Contact';
 import { isAuthenticated } from '@/lib/auth';
 
+export const dynamic = 'force-dynamic';
+
 // POST /api/contact - Submit contact form (public)
 export async function POST(req: NextRequest) {
   await dbConnect();

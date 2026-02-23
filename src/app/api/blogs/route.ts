@@ -3,6 +3,8 @@ import dbConnect from '@/lib/mongodb';
 import Blog from '@/models/Blog';
 import { isAuthenticated } from '@/lib/auth';
 
+export const dynamic = 'force-dynamic';
+
 // GET /api/blogs - Get all published blogs (public) or all blogs (admin)
 export async function GET(req: NextRequest) {
   await dbConnect();
@@ -31,10 +33,25 @@ export async function GET(req: NextRequest) {
     .sort({ createdAt: -1 })
     .skip((page - 1) * limit)
     .limit(limit)
-    .select('-content')
+    .select('-content -blocks')
     .lean();
 
   return NextResponse.json({ blogs, total, page, totalPages: Math.ceil(total / limit) });
+}
+
+// Helper to extract plain text from blocks for read time
+function getBlocksPlainText(blocks: Array<{ type: string; data: Record<string, unknown> }>): string {
+  return blocks.map(block => {
+    const d = block.data;
+    switch (block.type) {
+      case 'paragraph': case 'heading': return (d.text as string) || '';
+      case 'quote': return (d.text as string) || '';
+      case 'list': return ((d.items as string[]) || []).join(' ');
+      case 'callout': return `${d.title || ''} ${d.text || ''}`;
+      case 'code': return (d.code as string) || '';
+      default: return '';
+    }
+  }).join(' ');
 }
 
 // POST /api/blogs - Create a new blog (admin only)
@@ -52,8 +69,12 @@ export async function POST(req: NextRequest) {
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/(^-|-$)/g, '');
     }
-    // Calculate read time (avg 200 words per minute)
-    if (data.content) {
+    // Calculate read time from blocks or content
+    if (data.blocks && data.blocks.length > 0) {
+      const text = getBlocksPlainText(data.blocks);
+      const wordCount = text.split(/\s+/).filter(Boolean).length;
+      data.readTime = Math.max(1, Math.ceil(wordCount / 200));
+    } else if (data.content) {
       const wordCount = data.content.replace(/<[^>]*>/g, '').split(/\s+/).length;
       data.readTime = Math.max(1, Math.ceil(wordCount / 200));
     }

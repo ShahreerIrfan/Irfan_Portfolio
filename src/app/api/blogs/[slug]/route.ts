@@ -3,6 +3,23 @@ import dbConnect from '@/lib/mongodb';
 import Blog from '@/models/Blog';
 import { isAuthenticated } from '@/lib/auth';
 
+export const dynamic = 'force-dynamic';
+
+// Helper to extract plain text from blocks for read time
+function getBlocksPlainText(blocks: Array<{ type: string; data: Record<string, unknown> }>): string {
+  return blocks.map(block => {
+    const d = block.data;
+    switch (block.type) {
+      case 'paragraph': case 'heading': return (d.text as string) || '';
+      case 'quote': return (d.text as string) || '';
+      case 'list': return ((d.items as string[]) || []).join(' ');
+      case 'callout': return `${d.title || ''} ${d.text || ''}`;
+      case 'code': return (d.code as string) || '';
+      default: return '';
+    }
+  }).join(' ');
+}
+
 // GET /api/blogs/[slug]
 export async function GET(req: NextRequest, { params }: { params: { slug: string } }) {
   await dbConnect();
@@ -23,7 +40,12 @@ export async function PUT(req: NextRequest, { params }: { params: { slug: string
   }
   await dbConnect();
   const data = await req.json();
-  if (data.content) {
+  // Calculate read time from blocks or content
+  if (data.blocks && data.blocks.length > 0) {
+    const text = getBlocksPlainText(data.blocks);
+    const wordCount = text.split(/\s+/).filter(Boolean).length;
+    data.readTime = Math.max(1, Math.ceil(wordCount / 200));
+  } else if (data.content) {
     const wordCount = data.content.replace(/<[^>]*>/g, '').split(/\s+/).length;
     data.readTime = Math.max(1, Math.ceil(wordCount / 200));
   }

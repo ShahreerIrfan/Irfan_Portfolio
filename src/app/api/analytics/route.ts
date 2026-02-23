@@ -6,6 +6,8 @@ import Contact from '@/models/Contact';
 import Project from '@/models/Project';
 import { isAuthenticated } from '@/lib/auth';
 
+export const dynamic = 'force-dynamic';
+
 // POST /api/analytics - Track a page view (public)
 export async function POST(req: NextRequest) {
   await dbConnect();

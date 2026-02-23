@@ -3,6 +3,8 @@ import connectDB from '@/lib/mongodb';
 import Gallery from '@/models/Gallery';
 import { isAuthenticated } from '@/lib/auth';
 
+export const dynamic = 'force-dynamic';
+
 // PUT /api/gallery/[id]
 export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
   if (!isAuthenticated(req)) {

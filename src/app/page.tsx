@@ -21,6 +21,27 @@ const TechStack = dynamic(() => import('@/components/TechStack'), {
 const Contact = dynamic(() => import('@/components/Contact'), {
   loading: () => <SectionSkeleton />,
 });
+const StatsCounter = dynamic(() => import('@/components/StatsCounter'), {
+  loading: () => <SectionSkeleton />,
+});
+const Testimonials = dynamic(() => import('@/components/Testimonials'), {
+  loading: () => <SectionSkeleton />,
+});
+const PricingSection = dynamic(() => import('@/components/PricingSection'), {
+  loading: () => <SectionSkeleton />,
+});
+const QuickQuote = dynamic(() => import('@/components/QuickQuote'), {
+  loading: () => <SectionSkeleton />,
+});
+const MeetingBooking = dynamic(() => import('@/components/MeetingBooking'), {
+  loading: () => <SectionSkeleton />,
+});
+const NewsletterSignup = dynamic(() => import('@/components/NewsletterSignup'), {
+  loading: () => <SectionSkeleton />,
+});
+const ClientShowcase = dynamic(() => import('@/components/ClientShowcase'), {
+  ssr: false,
+});
 const CommandPalette = dynamic(() => import('@/components/CommandPalette'), {
   ssr: false,
 });
@@ -113,10 +134,17 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <StatsCounter />
         <TechMarquee />
         <Services />
+        <PricingSection />
         <TechStack />
+        <Testimonials />
+        <ClientShowcase />
+        <QuickQuote />
+        <MeetingBooking />
         <Contact />
+        <NewsletterSignup />
       </main>
 
       <Footer />
