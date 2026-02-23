@@ -7,6 +7,41 @@ import {
 import { useGsapReveal, useGsapStagger } from '@/hooks/useGsap';
 import profile from '@/data/profile';
 
+const DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons';
+
+const techIcons: Record<string, string> = {
+  'React':                  `${DEVICON}/react/react-original.svg`,
+  'Next.js':                `${DEVICON}/nextjs/nextjs-original.svg`,
+  'TypeScript':             `${DEVICON}/typescript/typescript-original.svg`,
+  'JavaScript':             `${DEVICON}/javascript/javascript-original.svg`,
+  'Tailwind CSS':           `${DEVICON}/tailwindcss/tailwindcss-original.svg`,
+  'HTML/CSS':               `${DEVICON}/html5/html5-original.svg`,
+  'Python':                 `${DEVICON}/python/python-original.svg`,
+  'Django':                 `${DEVICON}/django/django-plain.svg`,
+  'Django REST Framework':  `${DEVICON}/djangorest/djangorest-original.svg`,
+  'PHP':                    `${DEVICON}/php/php-original.svg`,
+  'Node.js':                `${DEVICON}/nodejs/nodejs-original.svg`,
+  'PostgreSQL':             `${DEVICON}/postgresql/postgresql-original.svg`,
+  'MySQL':                  `${DEVICON}/mysql/mysql-original.svg`,
+  'SQLite':                 `${DEVICON}/sqlite/sqlite-original.svg`,
+  'MongoDB':                `${DEVICON}/mongodb/mongodb-original.svg`,
+  'Git':                    `${DEVICON}/git/git-original.svg`,
+  'GitHub':                 `${DEVICON}/github/github-original.svg`,
+  'Docker':                 `${DEVICON}/docker/docker-original.svg`,
+  'Linux':                  `${DEVICON}/linux/linux-original.svg`,
+  'VS Code':                `${DEVICON}/vscode/vscode-original.svg`,
+  'Figma':                  `${DEVICON}/figma/figma-original.svg`,
+  'WordPress':              `${DEVICON}/wordpress/wordpress-plain.svg`,
+  'Elementor':              'https://cdn.simpleicons.org/elementor/92003B',
+  'WooCommerce':            `${DEVICON}/woocommerce/woocommerce-original.svg`,
+  'Vercel':                 `${DEVICON}/vercel/vercel-original.svg`,
+  'Netlify':                `${DEVICON}/netlify/netlify-original.svg`,
+  'AWS (Basic)':            `${DEVICON}/amazonwebservices/amazonwebservices-original-wordmark.svg`,
+};
+
+/** Icons that are dark/black and need inversion in dark mode */
+const darkIcons = new Set(['Next.js', 'GitHub', 'WordPress', 'Vercel']);
+
 const categoryMeta: Record<string, { icon: React.ElementType; gradient: string; bg: string }> = {
   Frontend:         { icon: Code2,    gradient: 'from-blue-500 to-cyan-400',    bg: 'bg-blue-500/10' },
   Backend:          { icon: Server,   gradient: 'from-purple-500 to-pink-400',  bg: 'bg-purple-500/10' },
@@ -23,6 +58,7 @@ const levelBadge: Record<string, { color: string; width: string }> = {
 
 export default function TechStack() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [failedIcons, setFailedIcons] = useState<Set<string>>(new Set());
   const titleRef = useGsapReveal({ y: 40 });
   const gridRef = useGsapStagger({ stagger: 0.04, scale: true });
 
@@ -109,9 +145,25 @@ export default function TechStack() {
                           style={{ background: `radial-gradient(circle at 50% 0%, var(--active-accent), transparent 70%)`, opacity: 0 }} />
                         <div className="relative z-10 w-full">
                           <div className={`w-12 h-12 mx-auto mb-3 rounded-xl ${meta.bg} flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg`}>
-                            <span className="text-lg font-black bg-gradient-to-br ${meta.gradient} bg-clip-text" style={{ color: 'var(--active-accent)' }}>
-                              {skill.name.slice(0, 2).toUpperCase()}
-                            </span>
+                            {techIcons[skill.name] && !failedIcons.has(skill.name) ? (
+                              <img
+                                src={techIcons[skill.name]}
+                                alt={skill.name}
+                                className={`w-7 h-7 object-contain ${
+                                  darkIcons.has(skill.name) ? 'dark:invert' : ''
+                                }`}
+                                onError={() =>
+                                  setFailedIcons((prev) => new Set(prev).add(skill.name))
+                                }
+                              />
+                            ) : (
+                              <span
+                                className="text-lg font-black"
+                                style={{ color: 'var(--active-accent)' }}
+                              >
+                                {skill.name.slice(0, 2).toUpperCase()}
+                              </span>
+                            )}
                           </div>
                           <p className="font-semibold text-sm text-slate-900 dark:text-white mb-1 truncate group-hover:text-[var(--active-accent)] transition-colors">
                             {skill.name}
