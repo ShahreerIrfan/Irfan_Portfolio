@@ -15,7 +15,7 @@ interface StatItem {
 const defaultStats: StatItem[] = [
   { label: 'Projects Completed', value: 50, suffix: '+', icon: Briefcase, color: 'from-blue-500 to-cyan-400' },
   { label: 'Happy Clients', value: 30, suffix: '+', icon: Users, color: 'from-emerald-500 to-teal-400' },
-  { label: 'Years Experience', value: 3, suffix: '+', icon: Coffee, color: 'from-purple-500 to-pink-400' },
+  { label: 'Years Experience', value: 7, suffix: '+', icon: Coffee, color: 'from-purple-500 to-pink-400' },
   { label: 'Awards & Certs', value: 10, suffix: '+', icon: Award, color: 'from-amber-500 to-orange-400' },
 ];
 
