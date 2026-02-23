@@ -61,7 +61,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center relative overflow-hidden pt-16"
+      className="min-h-[100vh] flex items-center relative overflow-hidden pt-20 pb-8"
       ref={heroRef}
     >
       {/* ===== Rich Animated Background ===== */}
@@ -136,12 +136,12 @@ export default function Hero() {
                 background: 'conic-gradient(from 0deg, var(--active-accent), #7C3AED, #0D9488, #F43F5E, #F59E0B, var(--active-accent))',
               }}>
               <div className="rounded-full p-[3px] bg-white dark:bg-dark-bg">
-                <div className="w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden">
+                <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden">
                   <Image
                     src="/Irfan.png"
                     alt={profile.name}
-                    width={240}
-                    height={240}
+                    width={288}
+                    height={288}
                     className="w-full h-full object-cover"
                     priority
                   />
@@ -183,13 +183,13 @@ export default function Hero() {
             </div>
 
             {/* Name - with richer gradient */}
-            <h1 className="hero-name text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-black mb-3 leading-[1.1] tracking-tight">
+            <h1 className="hero-name text-4xl md:text-6xl lg:text-[4rem] xl:text-7xl font-black mb-4 leading-[1.1] tracking-tight">
               <span className="text-[#1B1B1F] dark:text-dark-text">{profile.name.split(' ').slice(0, -1).join(' ')}</span>{' '}
               <span className="hero-name-gradient">{profile.name.split(' ').slice(-1)}</span>
             </h1>
 
             {/* Animated typing tagline */}
-            <div className="hero-tagline text-xl md:text-2xl lg:text-3xl font-bold mb-5 h-10">
+            <div className="hero-tagline text-xl md:text-2xl lg:text-[2rem] font-bold mb-6 h-10">
               <span className="gradient-text-animated">{displayed}</span>
               <span className="inline-block w-[3px] h-7 md:h-8 bg-[var(--active-accent)] ml-1 align-middle animate-[blink_1s_step-end_infinite]" />
             </div>
@@ -260,14 +260,13 @@ export default function Hero() {
                 <Download className="w-5 h-5 transition-transform group-hover:translate-y-0.5" />
                 Download Resume
               </a>
-              <button
-                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              <a
+                href="/portfolio"
                 className="btn-secondary magnetic-btn group hero-cta-secondary"
-                type="button"
               >
                 View Projects
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </button>
+              </a>
             </div>
           </div>
         </div>

@@ -23,24 +23,6 @@
       "static/chunks/_app-pages-browser_src_components_Contact_tsx.js"
     ]
   },
-  "app\\page.tsx -> @/components/Education": {
-    "id": "app\\page.tsx -> @/components/Education",
-    "files": [
-      "static/chunks/_app-pages-browser_src_components_Education_tsx.js"
-    ]
-  },
-  "app\\page.tsx -> @/components/Experience": {
-    "id": "app\\page.tsx -> @/components/Experience",
-    "files": [
-      "static/chunks/_app-pages-browser_src_components_Experience_tsx.js"
-    ]
-  },
-  "app\\page.tsx -> @/components/GitHubShowcase": {
-    "id": "app\\page.tsx -> @/components/GitHubShowcase",
-    "files": [
-      "static/chunks/_app-pages-browser_src_components_GitHubShowcase_tsx.js"
-    ]
-  },
   "app\\page.tsx -> @/components/KeyboardShortcuts": {
     "id": "app\\page.tsx -> @/components/KeyboardShortcuts",
     "files": [
@@ -51,12 +33,6 @@
     "id": "app\\page.tsx -> @/components/PageLoader",
     "files": [
       "static/chunks/_app-pages-browser_src_components_PageLoader_tsx.js"
-    ]
-  },
-  "app\\page.tsx -> @/components/Projects": {
-    "id": "app\\page.tsx -> @/components/Projects",
-    "files": [
-      "static/chunks/_app-pages-browser_src_components_Projects_tsx.js"
     ]
   },
   "app\\page.tsx -> @/components/RocketScroll": {

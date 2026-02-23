@@ -12,22 +12,10 @@ import Footer from '@/components/Footer';
 import SmoothScrollProvider from '@/components/SmoothScrollProvider';
 
 // Lazy-load heavy sections
-const Education = dynamic(() => import('@/components/Education'), {
-  loading: () => <SectionSkeleton />,
-});
-const Experience = dynamic(() => import('@/components/Experience'), {
-  loading: () => <SectionSkeleton />,
-});
 const Services = dynamic(() => import('@/components/Services'), {
   loading: () => <SectionSkeleton />,
 });
 const TechStack = dynamic(() => import('@/components/TechStack'), {
-  loading: () => <SectionSkeleton />,
-});
-const GitHubShowcase = dynamic(() => import('@/components/GitHubShowcase'), {
-  loading: () => <SectionSkeleton />,
-});
-const Projects = dynamic(() => import('@/components/Projects'), {
   loading: () => <SectionSkeleton />,
 });
 const Contact = dynamic(() => import('@/components/Contact'), {
@@ -90,14 +78,11 @@ export default function Home() {
       if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
 
       const shortcuts: Record<string, string> = {
-        g: 'github',
-        p: 'projects',
         c: 'contact',
         h: 'hero',
-        e: 'education',
-        w: 'experience',
         t: 'techstack',
         s: 'services',
+        a: 'about',
       };
 
       if (shortcuts[e.key.toLowerCase()] && !e.ctrlKey && !e.metaKey && !e.altKey) {
@@ -130,11 +115,7 @@ export default function Home() {
         <About />
         <TechMarquee />
         <Services />
-        <Education />
-        <Experience />
         <TechStack />
-        <GitHubShowcase />
-        <Projects />
         <Contact />
       </main>
 

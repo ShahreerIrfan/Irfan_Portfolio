@@ -7,9 +7,7 @@ const sections = [
   { id: 'about', label: 'About' },
   { id: 'techmarquee', label: 'Skills' },
   { id: 'services', label: 'Services' },
-  { id: 'education', label: 'Education' },
-  { id: 'experience', label: 'Work' },
-  { id: 'projects', label: 'Projects' },
+  { id: 'techstack', label: 'Tech' },
   { id: 'contact', label: 'Contact' },
 ];
 

@@ -92,7 +92,7 @@ export default function About() {
   const titleRef = useGsapReveal({ y: 40 });
 
   return (
-    <section id="about" className="relative overflow-hidden section-animated-bg">
+    <section id="about" className="relative overflow-hidden">
       <div className="section-container">
         <div ref={titleRef} className="text-center">
           <h2 className="section-title text-center">At a Glance</h2>
@@ -105,23 +105,18 @@ export default function About() {
               key={item.label}
               className="group relative glass-card-hover p-5 md:p-6 text-center overflow-hidden"
             >
-              {/* Gradient background on hover */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-[0.06] transition-opacity duration-500`} />
-
               {/* Top accent line */}
               <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${item.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
 
               <div className="relative z-10">
-                <div className={`inline-flex p-3.5 rounded-2xl ${item.iconBg} mb-3 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg`}
-                  style={{ '--tw-shadow-color': item.borderGlow } as React.CSSProperties}>
+                <div className={`inline-flex p-3.5 rounded-2xl ${item.iconBg} mb-3 transition-all duration-300 group-hover:scale-110`}>
                   <item.icon className={`w-6 h-6 ${item.iconColor}`} />
                 </div>
-                <p className="text-2xl md:text-3xl font-extrabold text-[#1B1B1F] dark:text-dark-text mb-1 group-hover:text-transparent group-hover:bg-clip-text"
-                  style={{ backgroundImage: `linear-gradient(135deg, var(--active-accent), #7C3AED)` }}>
+                <p className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mb-1">
                   {item.value}
                 </p>
-                <p className="text-sm font-semibold text-[#49454F] dark:text-dark-text-secondary">{item.label}</p>
-                <p className="text-xs text-[#49454F]/60 dark:text-dark-text-secondary/60 mt-1">{item.subtitle}</p>
+                <p className="text-sm font-semibold text-slate-600 dark:text-slate-300">{item.label}</p>
+                <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">{item.subtitle}</p>
               </div>
             </div>
           ))}

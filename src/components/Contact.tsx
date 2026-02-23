@@ -39,6 +39,9 @@ const contactInfo = [
 export default function Contact() {
   const [copied, setCopied] = useState<string | null>(null);
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
+  const [loading, setLoading] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState('');
   const titleRef = useGsapReveal({ y: 40 });
   const cardsRef = useGsapStagger({ stagger: 0.08, scale: true });
   const formRef = useGsapReveal({ y: 30, delay: 0.2 });
@@ -49,10 +52,29 @@ export default function Contact() {
     setTimeout(() => setCopied(null), 2000);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:mdshahreerirfan@gmail.com?subject=Portfolio Contact from ${formState.name}&body=${encodeURIComponent(formState.message)}%0A%0AFrom: ${formState.email}`;
-    window.open(mailtoLink, '_blank');
+    setLoading(true);
+    setError('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          subject: `Portfolio Contact from ${formState.name}`,
+          message: formState.message,
+        }),
+      });
+      if (!res.ok) throw new Error('Failed to send');
+      setSent(true);
+      setFormState({ name: '', email: '', message: '' });
+    } catch {
+      setError('Failed to send message. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -196,13 +218,32 @@ export default function Contact() {
                 />
               </div>
 
-              <button
-                type="submit"
-                className="btn-primary w-full justify-center"
-              >
-                <Send className="w-4 h-4" />
-                Send Message
-              </button>
+              {error && <p className="text-sm text-red-500">{error}</p>}
+              {sent ? (
+                <div className="text-center py-4">
+                  <p className="text-emerald-500 font-semibold flex items-center justify-center gap-2">
+                    <Send className="w-4 h-4" /> Message sent successfully!
+                  </p>
+                  <button type="button" onClick={() => setSent(false)} className="text-sm text-[var(--active-accent)] mt-2 hover:underline">
+                    Send another message
+                  </button>
+                </div>
+              ) : (
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="btn-primary w-full justify-center"
+                >
+                  {loading ? (
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      Send Message
+                    </>
+                  )}
+                </button>
+              )}
             </form>
           </div>
         </div>

@@ -20,6 +20,25 @@
     @apply font-sans antialiased;
     scroll-padding-top: 5rem;
     overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--active-accent) transparent;
+  }
+
+  html::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: var(--active-accent);
+    border-radius: 3px;
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in srgb, var(--active-accent) 80%, black);
   }
 
   body {
